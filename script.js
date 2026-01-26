@@ -170,17 +170,38 @@ function copyToClipboard(elementId) {
 }
 
 /* --- RSVP Form Logic --- */
-function toggleAttendance(isAttending) {
-  const details = d.getElementById("attendanceDetails");
-  if (isAttending) {
-    details.classList.remove("hidden");
-    // Add animation
-    details.style.opacity = "0";
+let attendingStatus = null;
+
+function toggleAttendance(status) {
+  attendingStatus = status;
+  const mainGuestData = d.getElementById("mainGuestData");
+  const companionSection = d.getElementById("companionSection");
+  const submitBtn = d.getElementById("submitBtn");
+
+  // Show main guest data for BOTH yes and no
+  mainGuestData.classList.remove("hidden");
+  mainGuestData.style.opacity = "0";
+  setTimeout(() => {
+    mainGuestData.style.opacity = "1";
+  }, 50);
+
+  // Show submit button
+  submitBtn.style.display = "block";
+
+  // Show companion section ONLY for yes
+  if (status === "yes") {
+    companionSection.classList.remove("hidden");
+    companionSection.style.opacity = "0";
     setTimeout(() => {
-      details.style.opacity = "1";
-    }, 50);
+      companionSection.style.opacity = "1";
+    }, 100);
   } else {
-    details.classList.add("hidden");
+    companionSection.classList.add("hidden");
+    // Reset companion fields when switching to "no"
+    d.getElementById("quantitySection").classList.add("hidden");
+    d.getElementById("guestFieldsContainer").innerHTML = "";
+    const guestCount = d.getElementById("guestCount");
+    if (guestCount) guestCount.value = "";
   }
 }
 
@@ -229,18 +250,42 @@ function generateGuestFields() {
 
 d.getElementById("rsvpForm").addEventListener("submit", function (e) {
   e.preventDefault();
-  // Simulate loading
-  const btn = this.querySelector('button[type="submit"]');
-  const originalText = btn.innerText;
+
+  const form = this;
+  const btn = form.querySelector('button[type="submit"]');
+  const confirmationMsg = d.getElementById("confirmationMessage");
+  const confirmTitle = d.getElementById("confirmTitle");
+  const confirmText = d.getElementById("confirmText");
+
   btn.innerText = "Enviando...";
   btn.disabled = true;
 
   setTimeout(() => {
-    alert("¡Gracias por confirmar! Nos vemos en la boda.");
-    btn.innerText = originalText;
-    btn.disabled = false;
-    this.reset();
-    d.getElementById("attendanceDetails").classList.add("hidden");
+    // Hide form elements
+    d.getElementById("mainGuestData").style.display = "none";
+    d.getElementById("companionSection").style.display = "none";
+    form.querySelectorAll(".form-group").forEach((el) => {
+      el.style.display = "none";
+    });
+    btn.style.display = "none";
+
+    // Set appropriate confirmation message
+    if (attendingStatus === "yes") {
+      confirmTitle.textContent = "¡Gracias por confirmar!";
+      confirmText.textContent =
+        "Nos vemos en la boda. Tu confirmación ha sido registrada.";
+    } else {
+      confirmTitle.textContent = "Lamentamos que no puedas asistir";
+      confirmText.textContent =
+        "Gracias por avisarnos. ¡Te tendremos presente!";
+    }
+
+    // Show custom confirmation message
+    confirmationMsg.classList.remove("hidden");
+    confirmationMsg.style.display = "block";
+
+    // Scroll to confirmation message
+    confirmationMsg.scrollIntoView({ behavior: "smooth", block: "center" });
   }, 1500);
 });
 

@@ -432,18 +432,37 @@
                     <label class="form-label">¿Asistirás?</label>
                     <div class="radio-group">
                         <label class="radio-label">
-                            <input type="radio" name="attendance" value="si" onchange="toggleAttendance(true)" required>
+                            <input type="radio" name="attendance" value="si" onchange="toggleAttendance('yes')"
+                                required>
                             Sí, allí estaré
                         </label>
                         <label class="radio-label">
-                            <input type="radio" name="attendance" value="no" onchange="toggleAttendance(false)">
+                            <input type="radio" name="attendance" value="no" onchange="toggleAttendance('no')">
                             No podré asistir
                         </label>
                     </div>
                 </div>
 
-                <!-- Guest Details Section (Hidden by default) -->
-                <div id="attendanceDetails" class="hidden">
+                <!-- Main Guest Data (Shows for YES and NO) -->
+                <div id="mainGuestData" class="hidden">
+                    <div class="guest-card main-guest">
+                        <h4>Tus Datos</h4>
+                        <div class="form-group">
+                            <input type="text" name="main_name" class="form-input" placeholder="Nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="main_lastname" class="form-input" placeholder="Apellido" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="main_dni" class="form-input" placeholder="DNI" required
+                                pattern="[0-9]{7,8}" title="Ingresa un DNI válido">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Companion Section (Only shows for YES) -->
+                <div id="companionSection" class="hidden">
+                    <!-- Companion Question -->
                     <div class="form-group">
                         <label class="form-label">¿Vas solo o acompañado?</label>
                         <div class="radio-group">
@@ -467,20 +486,23 @@
 
                     <!-- Dynamic Guest Fields -->
                     <div id="guestFieldsContainer"></div>
+
+                    <!-- Optional Message -->
+                    <div class="form-group">
+                        <label class="form-label">Mensaje (Opcional)</label>
+                        <textarea name="message" class="form-textarea" placeholder="Dejanos un mensaje..."></textarea>
+                    </div>
                 </div>
 
-                <!-- Main Guest Info -->
-                <div class="form-group">
-                    <label class="form-label">Tu Nombre Completo</label>
-                    <input type="text" name="main_name" class="form-input" required placeholder="Nombre y Apellido">
-                </div>
+                <button type="submit" class="btn_gold" id="submitBtn" style="display: none;">Enviar
+                    Confirmación</button>
 
-                <div class="form-group">
-                    <label class="form-label">Mensaje (Opcional)</label>
-                    <textarea name="message" class="form-textarea" placeholder="Dejanos un mensaje..."></textarea>
+                <!-- Custom Confirmation Message -->
+                <div id="confirmationMessage" class="confirmation-message hidden">
+                    <div class="confirmation-icon">✓</div>
+                    <h3 id="confirmTitle">¡Gracias por confirmar!</h3>
+                    <p id="confirmText">Nos vemos en la boda. Tu confirmación ha sido registrada.</p>
                 </div>
-
-                <button type="submit" class="btn_gold">Enviar Confirmación</button>
             </form>
         </div>
         <script src="script.js"></script>

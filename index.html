@@ -1,113 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title> F&A</title>
-  </head>
-  <body>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap"
+        rel="stylesheet">
+    <!-- Remix Icon -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
     <div class="loader" id="loader">
-      <div class="loader_initials">F & A</div>
-      <div class="loader_text">Bievenidos a compartir nuestro amor...</div>
+        <div class="loader_initials">F & A</div>
+        <div class="loader_text">Bievenidos a compartir nuestro amor...</div>
     </div>
 
     <nav class="navbar" id="navbar">
-      <div class="navbar_container">
-        <a href="#" class="navbar_logo">F & A</a>
-        <ul class="navbar_menu">
-          <li><a href="#hero" class="navbar_link">Inicio</a></li>
-          <li><a href="#history" class="navbar_link">Historia</a></li>
-          <li><a href="#timeline" class="navbar_link">Cuando y Donde</a></li>
-          <li><a href="#gifts" class="navbar_link">Regalos</a></li>
-          <li><a href="#faq" class="navbar_link">FAQ</a></li>
-          <li><a href="#rsvp" class="navbar_link">RSVP</a></li>
-        </ul>
-      </div>
+        <div class="navbar_container">
+            <a href="#" class="navbar_logo">F & A</a>
+            <ul class="navbar_menu">
+                <li><a href="#hero" class="navbar_link">Inicio</a></li>
+                <li><a href="#history" class="navbar_link">Historia</a></li>
+                <li><a href="#timeline" class="navbar_link">Cuando y Donde</a></li>
+                <li><a href="#gifts" class="navbar_link">Regalos</a></li>
+                <li><a href="#faq" class="navbar_link">FAQ</a></li>
+                <li><a href="#rsvp" class="navbar_link">RSVP</a></li>
+            </ul>
+        </div>
     </nav>
 
     <section class="hero" id="hero">
-      <div class="hero_background">
-        <img src="img/casamiento.jpg" alt="imagen" />
-      </div>
-      <div class="hero_overlay"></div>
-      <div class="hero_content">
-        <p class="hero_subtitle">Nos Casamos</p>
-        <h1 class="hero_names">Fernando & Alejandra</h1>
-        <p class="hero_date">15 de Junio de 2026</p>
-        <p class="hero_invitation">
-          Te invitamos a celebrar con nosotros el día más importante de nuestras
-          vidas
-        </p>
-      </div>
-      <div class="hero_scroll">
-        <div class="hero_scroll-icon"></div>
-        <span>SCROLL</span>
-      </div>
+        <div class="hero_background">
+            <img src="img/casamiento.jpg" alt="imagen" />
+        </div>
+        <div class="hero_overlay"></div>
+        <div class="hero_content">
+            <p class="hero_subtitle">Nos Casamos</p>
+            <h1 class="hero_names">Fernando & Alejandra</h1>
+            <p class="hero_date">15 de Junio de 2026</p>
+            <p class="hero_invitation">
+                Te invitamos a celebrar con nosotros el día más importante de nuestras
+                vidas
+            </p>
+        </div>
+        <a href="#countdown" class="hero_scroll-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+        </a>
     </section>
 
     <section class="countdown_reveal" id="countdown">
-      <div class="countdown_container">
-        <div class="countdown_content">
-          <h3 class="countdown_title">Cuenta Regresiva</h3>
-          <p class="countdown_subtitle">
-            Faltan solo unos momentos para nuestra gran celebración
-          </p>
+        <div class="countdown_container">
+            <div class="countdown_content">
+                <h3 class="countdown_title">Cuenta Regresiva</h3>
+                <p class="countdown_subtitle">
+                    Faltan solo unos momentos para nuestra gran celebración
+                </p>
+            </div>
+            <div class="countdown_item">
+                <span class="countdown_number" id="days">000</span><span class="countdown_label">Días</span>
+            </div>
+            <div class="countdown_item">
+                <span class="countdown_number" id="hours">00</span><span class="countdown_label">Horas</span>
+            </div>
+            <div class="countdown_item">
+                <span class="countdown_number" id="minutes">00</span><span class="countdown_label">Minutos</span>
+            </div>
+            <div class="countdown_item">
+                <span class="countdown_number" id="seconds">00</span><span class="countdown_label">Segundos</span>
+            </div>
         </div>
-        <div class="countdown_item">
-          <span class="countdown_number" id="days">000</span
-          ><span class="countdown_label">Días</span>
-        </div>
-        <div class="countdown_item">
-          <span class="countdown_number" id="hours">00</span
-          ><span class="countdown_label">Horas</span>
-        </div>
-        <div class="countdown_item">
-          <span class="countdown_number" id="minutes">00</span
-          ><span class="countdown_label">Minutos</span>
-        </div>
-        <div class="countdown_item">
-          <span class="countdown_number" id="seconds">00</span
-          ><span class="countdown_label">Segundos</span>
-        </div>
-      </div>
     </section>
 
+
     <section class="history" id="history">
-      <div class="history_container">
-        <div class="history_content">
-          <div class="history_image">
-            <img src="img/historia.jpg" alt="historia" />
-          </div>
-          <h4 class="history_subtitle">Nuestra Historia</h4>
-          <h2 class="history_tittle">
-            Un Amor que<span class="text_gold">Trasciende el Tiempo</span>
-          </h2>
-          <div class="history_text">
-            <p>
-              Nos conocimos en una tarde de primavera, cuando el destino decidió
-              cruzar nuestros caminos en el momento perfecto. Desde ese primer
-              encuentro, supimos que algo especial estaba por comenzar.
-            </p>
-            <p>
-              A lo largo de los años, nuestro amor ha crecido más fuerte con
-              cada risa compartida, cada aventura vivida y cada reto superado
-              juntos. Hemos construido un vínculo que va más allá de las
-              palabras.
-            </p>
-            <p class="text_gold">
-              Ahora, estamos listos para escribir el siguiente capítulo de
-              nuestra historia, y queremos que seas parte de este momento
-              inolvidable.
-            </p>
-          </div>
-          <div class="history_footer">
-            <p>
-              "El amor no se mira, se siente. Y cuando te tengo cerca, siento
-              que puedo conquistar el mundo."
-            </p>
-          </div>
+        <div class="section_header reveal">
+            <p class="section_label">Nuestra Historia</p>
+            <h2 class="section_title">Un Amor que <span class="text_gold">Trasciende el Tiempo</span></h2>
+            <div class="section_divider"></div>
         </div>
-      </div>
+        <div class="history_container">
+            <div class="history_image reveal">
+                <img src="img/historia.jpg" alt="historia" />
+            </div>
+            <div class="history_content reveal">
+                <div class="history_text">
+                    <p>
+                        Nos conocimos en una tarde de primavera, cuando el destino decidió
+                        cruzar nuestros caminos en el momento perfecto. Desde ese primer
+                        encuentro, supimos que algo especial estaba por comenzar.
+                    </p>
+                    <p>
+                        A lo largo de los años, nuestro amor ha crecido más fuerte con
+                        cada risa compartida, cada aventura vivida y cada reto superado
+                        juntos. Hemos construido un vínculo que va más allá de las
+                        palabras.
+                    </p>
+                    <p>
+                        Ahora, estamos listos para escribir el siguiente capítulo de
+                        nuestra historia, y queremos que seas parte de este momento
+                        inolvidable.
+                    </p>
+                </div>
+                <div class="history_footer">
+                    <p>
+                        "El amor no se mira, se siente. Y cuando te tengo cerca, siento
+                        que puedo conquistar el mundo."
+                    </p>
+                </div>
+            </div>
+        </div>
     </section>
 
     <div class="ornament reveal">✦ ✦ ✦</div>
@@ -197,8 +206,16 @@
         <!-- Dresscode -->
         <div class="dresscode-section">
             <div class="dresscode-badge">
+                <div class="dresscode-colors">
+                    <span class="color-swatch" style="background: #1a1a1a;"></span>
+                    <span class="color-swatch" style="background: #2C3E50;"></span>
+                    <span class="color-swatch" style="background: #8E44AD;"></span>
+                    <span class="color-swatch" style="background: #C0392B;"></span>
+                    <span class="color-swatch" style="background: #D4AF37;"></span>
+                </div>
                 <p class="dresscode-label">Código de Vestimenta</p>
                 <p class="dresscode-value">Formal / Etiqueta</p>
+                <p class="dresscode-hint">Colores sugeridos: Negro, Azul Marino, Borgoña, Dorado</p>
             </div>
         </div>
     </section>
@@ -210,50 +227,43 @@
             <div class="section_divider"></div>
         </div>
 
-        <div class="itinerary">
-            <div class="itinerary">
-                <div class="itinerary_card reveal delay-100">
-                    <div class="itinerary_icon">⛪</div>
-                    <div class="itinerary_time">16:00</div>
-                    <h3 class="itinerary_title">Ceremonia</h3>
-                    <p class="itinerary_ans">Nos damos el sí</p>
-                    <div class="itinerary_connector"></div>
-                </div>
+        <div class="itinerary_grid">
+            <div class="itinerary_card reveal delay-100">
+                <div class="itinerary_icon">⛪</div>
+                <div class="itinerary_time">16:00</div>
+                <h3 class="itinerary_title">Ceremonia</h3>
+                <p class="itinerary_ans">Nos damos el sí</p>
+            </div>
+            <div class="itinerary_card reveal delay-200">
+                <div class="itinerary_icon">📸</div>
+                <div class="itinerary_time">17:30</div>
+                <h3 class="itinerary_title">Fotos</h3>
+                <p class="itinerary_ans">Sesión con familia</p>
+            </div>
+            <div class="itinerary_card reveal delay-300">
+                <div class="itinerary_icon">🍸</div>
+                <div class="itinerary_time">19:00</div>
+                <h3 class="itinerary_title">Cocktail</h3>
+                <p class="itinerary_ans">Tragos y Aperativos</p>
+            </div>
+            <div class="itinerary_card reveal delay-400">
+                <div class="itinerary_icon">🍽️</div>
+                <div class="itinerary_time">20:30</div>
+                <h3 class="itinerary_title">Cena</h3>
+                <p class="itinerary_ans">Menú especial</p>
             </div>
             <div class="itinerary_card reveal delay-100">
-                    <div class="itinerary_icon">📸</div>
-                    <div class="itinerary_time">17:30</div>
-                    <h3 class="itinerary_title">Fotos</h3>
-                    <p class="itinerary_ans">Sesión con familia</p>
-                    <div class="itinerary_connector"></div>
-                </div>
-            <div class="itinerary_card reveal delay-100">
-                    <div class="itinerary_icon">🍸</div>
-                    <div class="itinerary_time">19:00</div>
-                    <h3 class="itinerary_title">Cocktail</h3>
-                    <p class="itinerary_ans">Tragos y Aperativos</p>
-                    <div class="itinerary_connector"></div>
-                </div>
-                <div class="itinerary_card reveal delay-100">
-                    <div class="itinerary_icon">🍽️</div>
-                    <div class="itinerary_time">20:30</div>
-                    <h3 class="itinerary_title">Cena</h3>
-                    <p class="itinerary_ans">Menú especial</p>
-                    <div class="itinerary_connector"></div>
-                </div>
-                <div class="itinerary_card reveal delay-100">
-                    <div class="itinerary_icon">💃</div>
-                    <div class="itinerary_time">00:00</div>
-                    <h3 class="itinerary_title">¡Fiesta!</h3>
-                    <p class="itinerary_ans">Hasta el amanecer</p>
-                    <div class="itinerary_connector"></div>
-                </div>
+                <div class="itinerary_icon">💃</div>
+                <div class="itinerary_time">00:00</div>
+                <h3 class="itinerary_title">¡Fiesta!</h3>
+                <p class="itinerary_ans">Hasta el amanecer</p>
+            </div>
         </div>
     </section>
 
     <section class="gifts" id="gifts">
         <div class="section_header reveal">
-            <p class="section label">Si no sabés qué regalarnos</p>
+            <p class="section_label">Si no sabés qué regalarnos</p>
             <h2 class="section_title">Te contamos acá</h2>
             <div class="section_divider"></div>
         </div>
@@ -266,12 +276,12 @@
         <div class="gifts_options">
             <div class="gifts_accordion reveal delay-100" id="giftBank">
                 <button class="gifts_accordion-header" onclick="toggleGiftAccordion('giftBank')">
-                    <div class="gifts__accordion-icon">💳</div>
-                    <div class="gifts__accordion-text">
-                        <div class="gifts__accordion-title">Transferencia Bancaria</div>
-                        <div class="gifts__accordion-subtitle">Aportá a nuestra luna de miel</div>
+                    <div class="gifts_accordion-icon">💳</div>
+                    <div class="gifts_accordion-text">
+                        <div class="gifts_accordion-title">Transferencia Bancaria</div>
+                        <div class="gifts_accordion-subtitle">Aportá a nuestra luna de miel</div>
                     </div>
-                    <span class="gifts_accordion arrow">▼</span>
+                    <span class="gifts_accordion-arrow">▼</span>
                 </button>
                 <div class="gifts_accordion-content">
                     <div class="gifts_bank-card">
@@ -291,7 +301,7 @@
                             <span class="gifts_bank-label">Alias</span>
                             <span class="gifts_bank-value" id="aliasValue">Boda.Fernando.Alejandra</span>
                         </div>
-                        <button class="gifts_copy-btn" onclick="copyToClipboard('aliasValue'), this">
+                        <button class="gifts_copy-btn" onclick="copyToClipboard('aliasValue')">
                             Copiar Alias
                         </button>
                     </div>
@@ -299,15 +309,16 @@
             </div>
 
             <div class="gifts_accordion reveal delay-200" id="giftWishlist">
-                <button class="gifts__accordion-header" onclick="toggleGiftAccordion('giftWishlist')">
-                    <div class="gifts__accordion-icon">🎁</div>
+                <button class="gifts_accordion-header" onclick="toggleGiftAccordion('giftWishlist')">
+                    <div class="gifts_accordion-icon">🎁</div>
                     <div class="gifts_accordion-text">
                         <div class="gifts_accordion-title">Lista de Deseos</div>
                         <div class="gifts_accordion-subtitle">Artículos que nos encantarían</div>
                     </div>
-                    <span class="gifts_accordion arrow">▼</span>
+                    <span class="gifts_accordion-arrow">▼</span>
                 </button>
-                <div class="gifts__wishlist">
+                <div class="gifts_accordion-content">
+                    <div class="gifts__wishlist">
                         <div class="gifts__item">
                             <div class="gifts__item-img">
                                 <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=200&q=80"
@@ -330,7 +341,8 @@
                                 <div class="gifts__item-name">Cafetera Nespresso</div>
                                 <div class="gifts__item-price">$180.000</div>
                             </div>
-                            <a href="https://www.mercadolibre.com.ar/cafetera-expresso-automatica-suono-20-bares-15-l-con-espumador-porta-capsulas-integrado-funcion-cafe-frio-limpieza-automatica-de-tanque/p/MLA62316463?pdp_filters=item_id:MLA1587307557#is_advertising=true&searchVariation=MLA62316463&backend_model=search-backend&position=2&search_layout=grid&type=pad&tracking_id=501cc83e-6a9e-4b61-be69-c001321a46da&ad_domain=VQCATCORE_LST&ad_position=2&ad_click_id=ODExODdmODktMTBjOS00ZjY1LWJjYWQtZDZiNjczZTFkMGNj" target="_blank" class="gifts__item-link">
+                            <a href="https://www.mercadolibre.com.ar/cafetera-expresso-automatica-suono-20-bares-15-l-con-espumador-porta-capsulas-integrado-funcion-cafe-frio-limpieza-automatica-de-tanque/p/MLA62316463?pdp_filters=item_id:MLA1587307557#is_advertising=true&searchVariation=MLA62316463&backend_model=search-backend&position=2&search_layout=grid&type=pad&tracking_id=501cc83e-6a9e-4b61-be69-c001321a46da&ad_domain=VQCATCORE_LST&ad_position=2&ad_click_id=ODExODdmODktMTBjOS00ZjY1LWJjYWQtZDZiNjczZTFkMGNj"
+                                target="_blank" class="gifts__item-link">
                                 Comprar
                             </a>
                         </div>
@@ -343,7 +355,8 @@
                                 <div class="gifts__item-name">Juego de sabanas King</div>
                                 <div class="gifts__item-price">$65.000</div>
                             </div>
-                            <a href="https://articulo.mercadolibre.com.ar/MLA-1456950136-juego-sabanas-palette-king-size-180-hilos-200-x-200-algodon-_JM?searchVariation=181377640321#polycard_client=search-nordic&searchVariation=181377640321&search_layout=grid&position=21&type=item&tracking_id=e59dff4d-416b-44ea-a9b0-d87bfca719b0" target="_blank" class="gifts__item-link">
+                            <a href="https://articulo.mercadolibre.com.ar/MLA-1456950136-juego-sabanas-palette-king-size-180-hilos-200-x-200-algodon-_JM?searchVariation=181377640321#polycard_client=search-nordic&searchVariation=181377640321&search_layout=grid&position=21&type=item&tracking_id=e59dff4d-416b-44ea-a9b0-d87bfca719b0"
+                                target="_blank" class="gifts__item-link">
                                 Comprar
                             </a>
                         </div>
@@ -356,10 +369,13 @@
                                 <div class="gifts__item-name">Set de Copas de Vino</div>
                                 <div class="gifts__item-price">$45.000</div>
                             </div>
-                            <a href="https://www.mercadolibre.com.ar/copa-cristal-crystalite-bohemia-vino-colibri-650ml-set-x6/p/MLA21994849?pdp_filters=item_id:MLA1471759736#is_advertising=true&searchVariation=MLA21994849&backend_model=search-backend&position=3&search_layout=grid&type=pad&tracking_id=5cf62da5-3735-426d-a27f-0fdab335f81c&ad_domain=VQCATCORE_LST&ad_position=3&ad_click_id=NjgxM2I0MWItZjcwZS00MWNlLThlYTQtYmM0Mzc5YWI5NjVl" target="_blank" class="gifts__item-link">
+                            <a href="https://www.mercadolibre.com.ar/copa-cristal-crystalite-bohemia-vino-colibri-650ml-set-x6/p/MLA21994849?pdp_filters=item_id:MLA1471759736#is_advertising=true&searchVariation=MLA21994849&backend_model=search-backend&position=3&search_layout=grid&type=pad&tracking_id=5cf62da5-3735-426d-a27f-0fdab335f81c&ad_domain=VQCATCORE_LST&ad_position=3&ad_click_id=NjgxM2I0MWItZjcwZS00MWNlLThlYTQtYmM0Mzc5YWI5NjVl"
+                                target="_blank" class="gifts__item-link">
                                 Comprar
                             </a>
                         </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -371,27 +387,27 @@
             <div class="section__divider"></div>
         </div>
         <div class="faq__container">
-            <div class="faq__item reveal delay-100">
+            <div class="faq__item">
                 <button class="faq__question">¿Puedo llevar niños? <span class="faq__icon">+</span></button>
                 <div class="faq__answer">
                     <p>Amamos a los más pequeños, pero para este día especial preferimos que sea una celebración solo
                         para adultos. ¡Gracias por entender!</p>
                 </div>
             </div>
-            <div class="faq__item reveal delay-200">
+            <div class="faq__item">
                 <button class="faq__question">¿Hay estacionamiento? <span class="faq__icon">+</span></button>
                 <div class="faq__answer">
                     <p>¡Sí! La Estancia La Primavera cuenta con amplio estacionamiento gratuito para todos los
                         invitados.</p>
                 </div>
             </div>
-            <div class="faq__item reveal delay-300">
+            <div class="faq__item">
                 <button class="faq__question">¿Hasta qué hora es la fiesta? <span class="faq__icon">+</span></button>
                 <div class="faq__answer">
                     <p>La fiesta está planificada hasta las 5:00 AM. ¡Vengan con energía para bailar toda la noche!</p>
                 </div>
             </div>
-            <div class="faq__item reveal delay-400">
+            <div class="faq__item">
                 <button class="faq__question">¿Hay menú vegetariano/vegano? <span class="faq__icon">+</span></button>
                 <div class="faq__answer">
                     <p>¡Por supuesto! Por favor indicalo en el formulario RSVP para que podamos preparar opciones
@@ -408,32 +424,88 @@
                 Tu presencia es el regalo más valioso. Por favor, confírmanos tu asistencia antes del 1 de Mayo de 2026.
             </p>
         </div>
-        <div class="rsvp_action">
-            <button class="btn_gold">Confirmar Asistencia</button>
         </div>
-        <div class="section__divider"></div>
-        <div class="rsvp_footer">
-            <div class="social_links">
+        <div class="rsvp_form_container">
+            <form id="rsvpForm" class="rsvp__form">
+                <!-- Attendance Option -->
+                <div class="form-group">
+                    <label class="form-label">¿Asistirás?</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="attendance" value="si" onchange="toggleAttendance(true)" required>
+                            Sí, allí estaré
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="attendance" value="no" onchange="toggleAttendance(false)">
+                            No podré asistir
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Guest Details Section (Hidden by default) -->
+                <div id="attendanceDetails" class="hidden">
+                    <div class="form-group">
+                        <label class="form-label">¿Vas solo o acompañado?</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="company" value="solo" onchange="toggleCompany(false)">
+                                Voy Solo
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="company" value="acompanado" onchange="toggleCompany(true)">
+                                Con Acompañantes
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Quantity Section -->
+                    <div id="quantitySection" class="hidden form-group">
+                        <label class="form-label" for="guestCount">¿Con cuántas personas más?</label>
+                        <input type="number" id="guestCount" min="1" max="10" class="form-input" placeholder="Ej: 2"
+                            oninput="generateGuestFields()">
+                    </div>
+
+                    <!-- Dynamic Guest Fields -->
+                    <div id="guestFieldsContainer"></div>
+                </div>
+
+                <!-- Main Guest Info -->
+                <div class="form-group">
+                    <label class="form-label">Tu Nombre Completo</label>
+                    <input type="text" name="main_name" class="form-input" required placeholder="Nombre y Apellido">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Mensaje (Opcional)</label>
+                    <textarea name="message" class="form-textarea" placeholder="Dejanos un mensaje..."></textarea>
+                </div>
+
+                <button type="submit" class="btn_gold">Enviar Confirmación</button>
+            </form>
+        </div>
+        <script src="script.js"></script>
+    </section>
+
+    <footer class="footer">
+        <div class="footer__content">
+            <h3 class="footer__names">Fernando & Alejandra</h3>
+
+            <div class="social_footer_links">
                 <a href="#"><i class="ri-instagram-line"></i></a>
                 <a href="#"><i class="ri-facebook-circle-line"></i></a>
                 <a href="#"><i class="ri-mail-line"></i></a>
-                <p class="contact__text">¿Tienes preguntas? Contáctanos</p>
+            </div>
+
+            <p class="footer__info">15 de Junio, 2026 • Mendoza</p>
+
+            <div class="footer__credits">
+                <p>Hecho con <span class="heart">💛</span> para nuestro gran día</p>
+                <p class="alfa-digital-credit">
+                    <a href="https://alfadigital.pages.dev/" target="_blank">Hecho por Alfa Digital</a>
+                </p>
             </div>
         </div>
+    </footer>
+</body>
 
-    </section>
-    <div class="footer_divider"></div>
-
-<footer class="footer">
-    <div class="footer__content reveal">
-        <h3 class="footer__names">Fernando & Alejandra</h3>
-        
-        <p class="footer__info">15 de Junio, 2026 • Mendoza</p>
-        
-        <div class="footer__credits">
-            <p>Hecho con <span class="heart">💛</span> para nuestro gran día</p>
-        </div>
-    </div>
-</footer>
-  </body>
 </html>

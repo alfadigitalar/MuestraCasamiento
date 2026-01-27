@@ -162,10 +162,11 @@ function copyToClipboard(elementId) {
   navigator.clipboard
     .writeText(textToCopy)
     .then(() => {
-      alert("¡Alias copiado al portapapeles!");
+      showNotification("¡Alias copiado al portapapeles!");
     })
     .catch((err) => {
       console.error("Error al copiar: ", err);
+      showNotification("Error al copiar el alias");
     });
 }
 
@@ -225,7 +226,7 @@ function generateGuestFields() {
   container.innerHTML = "";
 
   if (count > 10) {
-    alert("Por favor contáctanos si son más de 10 personas.");
+    showNotification("Por favor contáctanos si son más de 10 personas.");
     return;
   }
 
@@ -250,8 +251,35 @@ function generateGuestFields() {
 
 d.getElementById("rsvpForm").addEventListener("submit", function (e) {
   e.preventDefault();
-
   const form = this;
+
+  // Custom Validation
+  if (!form.checkValidity()) {
+    const invalidInputs = form.querySelectorAll(":invalid");
+    const firstInvalid = invalidInputs[0];
+    let msg = "Por favor completa este campo.";
+
+    if (firstInvalid.validity.patternMismatch) {
+      if (
+        firstInvalid.name.includes("dni") ||
+        firstInvalid.name.includes("DNI")
+      ) {
+        msg = "Ingresa un DNI válido (7 u 8 números).";
+      } else {
+        msg = "El formato no es válido.";
+      }
+    } else if (firstInvalid.validity.valueMissing) {
+      if (firstInvalid.type === "radio") {
+        msg = "Por favor selecciona una opción.";
+      } else {
+        msg = "Este campo es requerido.";
+      }
+    }
+
+    showNotification(msg);
+    firstInvalid.focus();
+    return;
+  }
   const btn = form.querySelector('button[type="submit"]');
   const confirmationMsg = d.getElementById("confirmationMessage");
   const confirmTitle = d.getElementById("confirmTitle");
@@ -295,3 +323,29 @@ window.copyToClipboard = copyToClipboard;
 window.toggleAttendance = toggleAttendance;
 window.toggleCompany = toggleCompany;
 window.generateGuestFields = generateGuestFields;
+
+/* --- Custom Notification Logic --- */
+function showNotification(message) {
+  // Remove existing notification if any
+  const existing = d.querySelector(".notification-toast");
+  if (existing) existing.remove();
+
+  // Create new notification
+  const notification = d.createElement("div");
+  notification.className = "notification-toast";
+  notification.innerHTML = `
+        <span class="notification-icon">✨</span>
+        <span>${message}</span>
+    `;
+
+  d.body.appendChild(notification);
+
+  // Trigger animation
+  setTimeout(() => notification.classList.add("show"), 10);
+
+  // Remove after 3 seconds
+  setTimeout(() => {
+    notification.classList.remove("show");
+    setTimeout(() => notification.remove(), 500);
+  }, 3000);
+}

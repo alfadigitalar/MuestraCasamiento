@@ -177,6 +177,7 @@ function toggleAttendance(status) {
   attendingStatus = status;
   const mainGuestData = d.getElementById("mainGuestData");
   const companionSection = d.getElementById("companionSection");
+  const nonAttendingSection = d.getElementById("nonAttendingSection");
   const submitBtn = d.getElementById("submitBtn");
 
   // Show main guest data for BOTH yes and no
@@ -189,20 +190,42 @@ function toggleAttendance(status) {
   // Show submit button
   submitBtn.style.display = "block";
 
-  // Show companion section ONLY for yes
   if (status === "yes") {
+    // Show companion section
     companionSection.classList.remove("hidden");
     companionSection.style.opacity = "0";
     setTimeout(() => {
       companionSection.style.opacity = "1";
     }, 100);
+
+    // Hide non-attending section
+    nonAttendingSection.classList.add("hidden");
+    d.getElementById("quantitySectionNonAttending").classList.add("hidden");
+    d.getElementById("guestFieldsContainerNonAttending").innerHTML = "";
+    const guestCountNA = d.getElementById("guestCountNonAttending");
+    if (guestCountNA) guestCountNA.value = "";
+    // Uncheck radios in hidden section
+    d.querySelectorAll('input[name="non_attending_company"]').forEach(
+      (r) => (r.checked = false),
+    );
   } else {
+    // Show non-attending section
+    nonAttendingSection.classList.remove("hidden");
+    nonAttendingSection.style.opacity = "0";
+    setTimeout(() => {
+      nonAttendingSection.style.opacity = "1";
+    }, 100);
+
+    // Hide companion section
     companionSection.classList.add("hidden");
-    // Reset companion fields when switching to "no"
     d.getElementById("quantitySection").classList.add("hidden");
     d.getElementById("guestFieldsContainer").innerHTML = "";
     const guestCount = d.getElementById("guestCount");
     if (guestCount) guestCount.value = "";
+    // Uncheck radios in hidden section
+    d.querySelectorAll('input[name="company"]').forEach(
+      (r) => (r.checked = false),
+    );
   }
 }
 
@@ -219,9 +242,23 @@ function toggleCompany(isAccompanied) {
   }
 }
 
-function generateGuestFields() {
-  const count = parseInt(d.getElementById("guestCount").value) || 0;
-  const container = d.getElementById("guestFieldsContainer");
+function toggleNonAttendingCompany(isAccompanied) {
+  const quantitySection = d.getElementById("quantitySectionNonAttending");
+  const guestFields = d.getElementById("guestFieldsContainerNonAttending");
+
+  if (isAccompanied) {
+    quantitySection.classList.remove("hidden");
+  } else {
+    quantitySection.classList.add("hidden");
+    d.getElementById("guestCountNonAttending").value = "";
+    guestFields.innerHTML = "";
+  }
+}
+
+function generateGuestFields(countInputId, containerId) {
+  const countInput = d.getElementById(countInputId);
+  const container = d.getElementById(containerId);
+  const count = parseInt(countInput.value) || 0;
 
   container.innerHTML = "";
 
@@ -234,7 +271,7 @@ function generateGuestFields() {
     const guestCard = d.createElement("div");
     guestCard.className = "guest-card";
     guestCard.innerHTML = `
-            <h4>Acompañante #${i}</h4>
+            <h4>${attendingStatus === "yes" ? "Acompañante" : "Invitado No Asistente"} #${i}</h4>
             <div class="form-group">
                 <input type="text" name="guest_${i}_name" class="form-input" placeholder="Nombre" required>
             </div>
@@ -248,6 +285,26 @@ function generateGuestFields() {
     container.appendChild(guestCard);
   }
 }
+
+// Character Counter
+const messageBox = d.getElementById("messageBox");
+const charCounter = d.getElementById("charCounter");
+
+if (messageBox && charCounter) {
+  messageBox.addEventListener("input", function () {
+    const currentLength = this.value.length;
+    const maxLength = this.getAttribute("maxlength");
+    charCounter.textContent = `${currentLength}/${maxLength}`;
+  });
+}
+
+// Make functions global for inline onclick handlers in HTML
+window.toggleGiftAccordion = toggleGiftAccordion;
+window.copyToClipboard = copyToClipboard;
+window.toggleAttendance = toggleAttendance;
+window.toggleCompany = toggleCompany;
+window.toggleNonAttendingCompany = toggleNonAttendingCompany;
+window.generateGuestFields = generateGuestFields;
 
 d.getElementById("rsvpForm").addEventListener("submit", function (e) {
   e.preventDefault();
@@ -316,13 +373,6 @@ d.getElementById("rsvpForm").addEventListener("submit", function (e) {
     confirmationMsg.scrollIntoView({ behavior: "smooth", block: "center" });
   }, 1500);
 });
-
-// Make functions global for inline onclick handlers in HTML
-window.toggleGiftAccordion = toggleGiftAccordion;
-window.copyToClipboard = copyToClipboard;
-window.toggleAttendance = toggleAttendance;
-window.toggleCompany = toggleCompany;
-window.generateGuestFields = generateGuestFields;
 
 /* --- Custom Notification Logic --- */
 function showNotification(message) {

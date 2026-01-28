@@ -460,6 +460,36 @@
                     </div>
                 </div>
 
+                <!-- Non-Attending Companion Section (Only shows for NO) -->
+                <div id="nonAttendingSection" class="hidden">
+                    <div class="form-group">
+                        <label class="form-label">¿Ibas a asistir con alguien más?</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="non_attending_company" value="si"
+                                    onchange="toggleNonAttendingCompany(true)">
+                                Sí
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="non_attending_company" value="no"
+                                    onchange="toggleNonAttendingCompany(false)">
+                                No
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Quantity Section for Non-Attending -->
+                    <div id="quantitySectionNonAttending" class="hidden form-group">
+                        <label class="form-label" for="guestCountNonAttending">¿Cuántas personas?</label>
+                        <input type="number" id="guestCountNonAttending" min="1" max="10" class="form-input"
+                            placeholder="Ej: 2"
+                            oninput="generateGuestFields('guestCountNonAttending', 'guestFieldsContainerNonAttending')">
+                    </div>
+
+                    <!-- Dynamic Guest Fields for Non-Attending -->
+                    <div id="guestFieldsContainerNonAttending"></div>
+                </div>
+
                 <!-- Companion Section (Only shows for YES) -->
                 <div id="companionSection" class="hidden">
                     <!-- Companion Question -->
@@ -481,7 +511,7 @@
                     <div id="quantitySection" class="hidden form-group">
                         <label class="form-label" for="guestCount">¿Con cuántas personas más?</label>
                         <input type="number" id="guestCount" min="1" max="10" class="form-input" placeholder="Ej: 2"
-                            oninput="generateGuestFields()">
+                            oninput="generateGuestFields('guestCount', 'guestFieldsContainer')">
                     </div>
 
                     <!-- Dynamic Guest Fields -->
@@ -490,7 +520,9 @@
                     <!-- Optional Message -->
                     <div class="form-group">
                         <label class="form-label">Mensaje (Opcional)</label>
-                        <textarea name="message" class="form-textarea" placeholder="Dejanos un mensaje..."></textarea>
+                        <textarea name="message" id="messageBox" class="form-textarea"
+                            placeholder="Dejanos un mensaje..." maxlength="200"></textarea>
+                        <div id="charCounter" class="char-counter">0/200</div>
                     </div>
                 </div>
 

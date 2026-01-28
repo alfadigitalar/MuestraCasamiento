@@ -1940,3 +1940,14 @@ html {
   display: flex;
   align-items: center;
 }
+/* Character Counter */
+.char-counter {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-align: right;
+  margin-top: 0.2rem;
+}
+
+.form-textarea {
+  resize: none;
+}

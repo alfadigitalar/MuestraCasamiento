@@ -83,8 +83,8 @@ window.addEventListener("scroll", () => {
   } else {
     navbar.classList.remove("scrolled");
     navbar.style.padding = "1rem 0";
-    navbar.style.background = "rgba(253, 251, 247, 0.95)";
-    navbar.style.boxShadow = "none"; // Or keep soft shadow
+    navbar.style.background = "transparent";
+    navbar.style.boxShadow = "none";
   }
 });
 
